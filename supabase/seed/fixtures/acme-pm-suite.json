@@ -1,0 +1,418 @@
+{
+  "seedVersion": "2026-05-08",
+  "promptBundleVersion": "v1.0.0",
+  "caseSummary": {
+    "id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+    "vendorName": "Acme PM Suite",
+    "status": "decision_ready",
+    "renewalDate": "2026-06-18T00:00:00Z",
+    "urgencyLevel": "high",
+    "projectedSavings": 18240,
+    "recommendedAction": "renegotiate"
+  },
+  "decisionPacket": {
+    "recommendedAction": "renegotiate",
+    "confidenceScore": 0.82,
+    "rationale": "Acme PM Suite is renewing within the active notice window and observed utilization is materially below the contracted seat baseline.",
+    "evidence": [
+      {
+        "factKey": "renewal_date",
+        "documentId": "2a47d8bd-b67c-4322-9384-5249402f2771",
+        "snippet": "This Agreement renews automatically on June 18, 2026 for an additional twelve-month term unless either party provides written notice at least fourteen (14) days prior to renewal.",
+        "confidenceScore": 0.96
+      },
+      {
+        "factKey": "active_seats",
+        "documentId": "2cf2a7ce-f2cc-4adc-b0e3-a5b2f48d54ab",
+        "snippet": "46 active users out of 250 licensed users in the last 30 days.",
+        "confidenceScore": 0.99
+      },
+      {
+        "factKey": "annual_contract_value",
+        "documentId": "7be58b88-aef1-4268-bf22-d76959444abc",
+        "snippet": "Annual subscription charge: USD 48,000 for 250 Business seats.",
+        "confidenceScore": 0.98
+      }
+    ],
+    "projectedSavings": 18240,
+    "blockers": [],
+    "nextStep": "Review the vendor negotiation draft and send it before the June 4 notice deadline.",
+    "fallbackAction": "downgrade"
+  },
+  "generatedArtifacts": [
+    {
+      "artifactType": "cfo_summary",
+      "title": "Renewal Recommendation for Acme PM Suite",
+      "content": "Acme PM Suite is renewing on June 18, 2026 with only 18.4% observed license utilization. We recommend opening a renegotiation now to reduce the committed seat baseline before the notice deadline closes.",
+      "decisionVersion": 1,
+      "createdAt": "2026-05-08T12:04:00Z"
+    },
+    {
+      "artifactType": "approval_note",
+      "title": "Approval Note for Seat Reduction Review",
+      "content": "Finance review indicates a conservative annual savings opportunity of USD 18,240 if Acme agrees to lower the seat commitment from 250 to a revised baseline closer to active usage.",
+      "decisionVersion": 1,
+      "createdAt": "2026-05-08T12:04:00Z"
+    },
+    {
+      "artifactType": "vendor_email",
+      "title": "Seat Reduction and Renewal Discussion",
+      "content": "We are reviewing current utilization ahead of the June 18 renewal and would like to discuss a revised seat commitment that better reflects present usage across our teams.",
+      "decisionVersion": 1,
+      "createdAt": "2026-05-08T12:04:00Z"
+    }
+  ],
+  "activityTimeline": [
+    {
+      "runId": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+      "agentName": "OrchestratorAgent",
+      "stepName": "prepare-inputs",
+      "status": "completed",
+      "startedAt": "2026-05-08T12:00:00Z",
+      "completedAt": "2026-05-08T12:00:08Z",
+      "summary": "Prepared case metadata and normalized the uploaded source inventory."
+    },
+    {
+      "runId": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+      "agentName": "DocumentAgent",
+      "stepName": "extract-contract-facts",
+      "status": "completed",
+      "startedAt": "2026-05-08T12:00:08Z",
+      "completedAt": "2026-05-08T12:01:10Z",
+      "summary": "Identified the renewal date, fourteen-day notice period, seat count, and contract value."
+    },
+    {
+      "runId": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+      "agentName": "FinanceAgent",
+      "stepName": "compute-utilization",
+      "status": "completed",
+      "startedAt": "2026-05-08T12:01:10Z",
+      "completedAt": "2026-05-08T12:02:00Z",
+      "summary": "Calculated 18.4% utilization and modeled a conservative renegotiation scenario."
+    },
+    {
+      "runId": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+      "agentName": "PolicyAgent",
+      "stepName": "evaluate-thresholds",
+      "status": "completed",
+      "startedAt": "2026-05-08T12:02:00Z",
+      "completedAt": "2026-05-08T12:02:20Z",
+      "summary": "Marked the action as requiring CFO awareness but no blocking policy exception."
+    },
+    {
+      "runId": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+      "agentName": "DecisionAgent",
+      "stepName": "select-recommendation",
+      "status": "completed",
+      "startedAt": "2026-05-08T12:02:20Z",
+      "completedAt": "2026-05-08T12:03:10Z",
+      "summary": "Selected renegotiate with downgrade as the fallback action."
+    },
+    {
+      "runId": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+      "agentName": "CommsAgent",
+      "stepName": "generate-artifacts",
+      "status": "completed",
+      "startedAt": "2026-05-08T12:03:10Z",
+      "completedAt": "2026-05-08T12:04:00Z",
+      "summary": "Generated the CFO summary, approval note, and vendor-facing negotiation draft."
+    }
+  ],
+  "db": {
+    "cases": [
+      {
+        "id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "vendor_name": "Acme PM Suite",
+        "owner_user_id": "2d686aa7-0890-4c97-aec6-7816b0729e7b",
+        "status": "decision_ready",
+        "renewal_date": "2026-06-18T00:00:00Z",
+        "urgency_level": "high",
+        "projected_savings": 18240,
+        "recommended_action": "renegotiate",
+        "created_at": "2026-05-08T11:58:00Z",
+        "updated_at": "2026-05-08T12:04:00Z"
+      }
+    ],
+    "documents": [
+      {
+        "id": "2a47d8bd-b67c-4322-9384-5249402f2771",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "type": "contract_pdf",
+        "source_name": "acme-master-agreement.pdf",
+        "storage_path": "contracts/acme-master-agreement.pdf",
+        "raw_text": "This Agreement renews automatically on June 18, 2026 for an additional twelve-month term unless either party provides written notice at least fourteen (14) days prior to renewal.",
+        "mime_type": "application/pdf",
+        "parse_status": "parsed",
+        "uploaded_at": "2026-05-08T11:58:30Z"
+      },
+      {
+        "id": "7be58b88-aef1-4268-bf22-d76959444abc",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "type": "invoice_pdf",
+        "source_name": "acme-invoice-2026.pdf",
+        "storage_path": "invoices/acme-invoice-2026.pdf",
+        "raw_text": "Annual subscription charge: USD 48,000 for 250 Business seats.",
+        "mime_type": "application/pdf",
+        "parse_status": "parsed",
+        "uploaded_at": "2026-05-08T11:58:40Z"
+      },
+      {
+        "id": "2cf2a7ce-f2cc-4adc-b0e3-a5b2f48d54ab",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "type": "usage_csv",
+        "source_name": "acme-usage-30d.csv",
+        "storage_path": "usage-exports/acme-usage-30d.csv",
+        "raw_text": "active_users=46,total_licensed_users=250",
+        "mime_type": "text/csv",
+        "parse_status": "parsed",
+        "uploaded_at": "2026-05-08T11:58:50Z"
+      },
+      {
+        "id": "315271f5-1572-462b-96a6-c11367f45bc9",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "type": "renewal_email",
+        "source_name": "renewal-reminder",
+        "storage_path": null,
+        "raw_text": "Your annual renewal is scheduled for June 18. Please contact your account representative if you wish to discuss your upcoming term.",
+        "mime_type": "message/rfc822",
+        "parse_status": "parsed",
+        "uploaded_at": "2026-05-08T11:59:00Z"
+      }
+    ],
+    "extracted_facts": [
+      {
+        "id": "fd3d9c70-2969-4dc7-b4b1-b104ef286181",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "document_id": "2a47d8bd-b67c-4322-9384-5249402f2771",
+        "fact_key": "renewal_date",
+        "fact_value_json": "2026-06-18",
+        "source_snippet": "This Agreement renews automatically on June 18, 2026 for an additional twelve-month term unless either party provides written notice at least fourteen (14) days prior to renewal.",
+        "source_page": 2,
+        "confidence_score": 0.96,
+        "extracted_by_run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "created_at": "2026-05-08T12:01:00Z"
+      },
+      {
+        "id": "7af04e3e-b4e5-4442-ab73-54635e444c18",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "document_id": "2a47d8bd-b67c-4322-9384-5249402f2771",
+        "fact_key": "termination_notice_days",
+        "fact_value_json": 14,
+        "source_snippet": "written notice at least fourteen (14) days prior to renewal",
+        "source_page": 2,
+        "confidence_score": 0.95,
+        "extracted_by_run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "created_at": "2026-05-08T12:01:00Z"
+      },
+      {
+        "id": "7e7a44e9-9bfd-4daa-bb54-801ae7916a6d",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "document_id": "7be58b88-aef1-4268-bf22-d76959444abc",
+        "fact_key": "annual_contract_value",
+        "fact_value_json": 48000,
+        "source_snippet": "Annual subscription charge: USD 48,000 for 250 Business seats.",
+        "source_page": 1,
+        "confidence_score": 0.98,
+        "extracted_by_run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "created_at": "2026-05-08T12:01:08Z"
+      },
+      {
+        "id": "1bb4bb3f-d067-4d01-99f1-2733771be44e",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "document_id": "7be58b88-aef1-4268-bf22-d76959444abc",
+        "fact_key": "contracted_seats",
+        "fact_value_json": 250,
+        "source_snippet": "Annual subscription charge: USD 48,000 for 250 Business seats.",
+        "source_page": 1,
+        "confidence_score": 0.98,
+        "extracted_by_run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "created_at": "2026-05-08T12:01:08Z"
+      },
+      {
+        "id": "d55d0cfd-0ad7-445d-aa3f-5b4e1e829fe9",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "document_id": "2cf2a7ce-f2cc-4adc-b0e3-a5b2f48d54ab",
+        "fact_key": "active_seats",
+        "fact_value_json": 46,
+        "source_snippet": "46 active users out of 250 licensed users in the last 30 days.",
+        "source_page": null,
+        "confidence_score": 0.99,
+        "extracted_by_run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "created_at": "2026-05-08T12:01:45Z"
+      }
+    ],
+    "usage_snapshots": [
+      {
+        "id": "247c03fb-93ea-4d64-bc54-8ce1c3c3d323",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "seats_purchased": 250,
+        "seats_active": 46,
+        "utilization_percent": 18.4,
+        "cost_period": "annual",
+        "total_cost": 48000,
+        "currency": "USD",
+        "snapshot_source": "merged",
+        "created_by_run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "created_at": "2026-05-08T12:02:00Z"
+      }
+    ],
+    "policy_checks": [
+      {
+        "id": "e07bf596-b03a-4a75-a190-8f668fd14bb7",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "proposed_action": "renegotiate",
+        "threshold_name": "cfo_approval_over_25000",
+        "result": "pass",
+        "message": "The contract value requires CFO awareness but does not block the renegotiation workflow.",
+        "created_at": "2026-05-08T12:02:20Z"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "395c0dd6-90d6-4979-b959-cb0a65ac617d",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "decision_version": 1,
+        "recommended_action": "renegotiate",
+        "fallback_action": "downgrade",
+        "confidence_score": 0.82,
+        "rationale": "Acme PM Suite is renewing within the active notice window and observed utilization is materially below the contracted seat baseline.",
+        "projected_savings": 18240,
+        "blockers_json": [],
+        "next_step": "Review the vendor negotiation draft and send it before the June 4 notice deadline.",
+        "evidence_json": [
+          {
+            "factKey": "renewal_date",
+            "documentId": "2a47d8bd-b67c-4322-9384-5249402f2771",
+            "snippet": "This Agreement renews automatically on June 18, 2026 for an additional twelve-month term unless either party provides written notice at least fourteen (14) days prior to renewal.",
+            "confidenceScore": 0.96
+          },
+          {
+            "factKey": "active_seats",
+            "documentId": "2cf2a7ce-f2cc-4adc-b0e3-a5b2f48d54ab",
+            "snippet": "46 active users out of 250 licensed users in the last 30 days.",
+            "confidenceScore": 0.99
+          }
+        ],
+        "created_at": "2026-05-08T12:03:10Z"
+      }
+    ],
+    "generated_artifacts": [
+      {
+        "id": "1db5da40-7ed6-4bf7-82b0-dc48b91cc929",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "decision_id": "395c0dd6-90d6-4979-b959-cb0a65ac617d",
+        "artifact_type": "cfo_summary",
+        "title": "Renewal Recommendation for Acme PM Suite",
+        "content": "Acme PM Suite is renewing on June 18, 2026 with only 18.4% observed license utilization. We recommend opening a renegotiation now to reduce the committed seat baseline before the notice deadline closes.",
+        "created_at": "2026-05-08T12:04:00Z"
+      },
+      {
+        "id": "12b0f240-36ef-457d-b61d-f5ec7deece9b",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "decision_id": "395c0dd6-90d6-4979-b959-cb0a65ac617d",
+        "artifact_type": "approval_note",
+        "title": "Approval Note for Seat Reduction Review",
+        "content": "Finance review indicates a conservative annual savings opportunity of USD 18,240 if Acme agrees to lower the seat commitment from 250 to a revised baseline closer to active usage.",
+        "created_at": "2026-05-08T12:04:00Z"
+      },
+      {
+        "id": "fbe5ed8a-e32c-4706-b4c9-e4ef3e7e3f2e",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "decision_id": "395c0dd6-90d6-4979-b959-cb0a65ac617d",
+        "artifact_type": "vendor_email",
+        "title": "Seat Reduction and Renewal Discussion",
+        "content": "We are reviewing current utilization ahead of the June 18 renewal and would like to discuss a revised seat commitment that better reflects present usage across our teams.",
+        "created_at": "2026-05-08T12:04:00Z"
+      }
+    ],
+    "agent_runs": [
+      {
+        "id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "case_id": "7d6e6f34-7399-4ec3-b7f4-533f5dbaf2c8",
+        "status": "completed",
+        "triggered_by_user_id": "2d686aa7-0890-4c97-aec6-7816b0729e7b",
+        "started_at": "2026-05-08T12:00:00Z",
+        "completed_at": "2026-05-08T12:04:00Z",
+        "failure_reason": null,
+        "prompt_bundle_version": "v1.0.0",
+        "created_at": "2026-05-08T11:59:55Z"
+      }
+    ],
+    "agent_steps": [
+      {
+        "id": "78bdd55a-2a55-4459-929c-19f07da88fcb",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "agent_name": "OrchestratorAgent",
+        "step_name": "prepare-inputs",
+        "status": "completed",
+        "summary": "Prepared case metadata and normalized the uploaded source inventory.",
+        "started_at": "2026-05-08T12:00:00Z",
+        "completed_at": "2026-05-08T12:00:08Z",
+        "retry_count": 0,
+        "error_json": null
+      },
+      {
+        "id": "8c6995eb-d853-4539-af32-8ee17ddd3ec6",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "agent_name": "DocumentAgent",
+        "step_name": "extract-contract-facts",
+        "status": "completed",
+        "summary": "Identified the renewal date, fourteen-day notice period, seat count, and contract value.",
+        "started_at": "2026-05-08T12:00:08Z",
+        "completed_at": "2026-05-08T12:01:10Z",
+        "retry_count": 0,
+        "error_json": null
+      },
+      {
+        "id": "7b6fc771-1725-41df-8e10-c32066e69a69",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "agent_name": "FinanceAgent",
+        "step_name": "compute-utilization",
+        "status": "completed",
+        "summary": "Calculated 18.4% utilization and modeled a conservative renegotiation scenario.",
+        "started_at": "2026-05-08T12:01:10Z",
+        "completed_at": "2026-05-08T12:02:00Z",
+        "retry_count": 0,
+        "error_json": null
+      },
+      {
+        "id": "07b0d52d-94c9-4f6d-b3f4-df55ef7866b6",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "agent_name": "PolicyAgent",
+        "step_name": "evaluate-thresholds",
+        "status": "completed",
+        "summary": "Marked the action as requiring CFO awareness but no blocking policy exception.",
+        "started_at": "2026-05-08T12:02:00Z",
+        "completed_at": "2026-05-08T12:02:20Z",
+        "retry_count": 0,
+        "error_json": null
+      },
+      {
+        "id": "8e9aca47-1603-43e5-a262-ef80644db6af",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "agent_name": "DecisionAgent",
+        "step_name": "select-recommendation",
+        "status": "completed",
+        "summary": "Selected renegotiate with downgrade as the fallback action.",
+        "started_at": "2026-05-08T12:02:20Z",
+        "completed_at": "2026-05-08T12:03:10Z",
+        "retry_count": 0,
+        "error_json": null
+      },
+      {
+        "id": "6ef520cd-3e6a-4215-8a3e-4aeb4c033f0f",
+        "run_id": "88e6dbae-c71c-4a31-8d87-2dd341183be8",
+        "agent_name": "CommsAgent",
+        "step_name": "generate-artifacts",
+        "status": "completed",
+        "summary": "Generated the CFO summary, approval note, and vendor-facing negotiation draft.",
+        "started_at": "2026-05-08T12:03:10Z",
+        "completed_at": "2026-05-08T12:04:00Z",
+        "retry_count": 0,
+        "error_json": null
+      }
+    ]
+  }
+}
