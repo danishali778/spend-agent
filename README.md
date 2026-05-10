@@ -21,7 +21,13 @@ This system is not a copilot waiting for prompts. It ingests documents, extracts
 
 ## System Summary
 
-The product is a documentation-first monorepo design for a hackathon MVP built with `Next.js`, a Python agent worker, and `Supabase Postgres`. Users create a procurement case, upload a contract PDF, invoice PDF, usage CSV, and renewal email, then trigger analysis. A multi-agent system parses the inputs, computes utilization and savings opportunities, evaluates renewal constraints, recommends one of `renew`, `downgrade`, `cancel`, `renegotiate`, or `escalate`, and generates a CFO memo plus vendor-facing negotiation draft.
+The product is a monorepo MVP built with a `Next.js` frontend in `frontend/`, a Python `FastAPI + Celery` backend in `backend/`, and `Supabase Postgres`. Users create a procurement case, upload a contract PDF, invoice PDF, usage CSV, and renewal email, then trigger analysis. A multi-agent system parses the inputs, computes utilization and savings opportunities, evaluates renewal constraints, recommends one of `renew`, `downgrade`, `cancel`, `renegotiate`, or `escalate`, and generates a CFO memo plus vendor-facing negotiation draft.
+
+## Local Development
+
+- Frontend lives in `frontend/`.
+- Backend lives in `backend/`.
+- Run backend commands from `backend/.venv`.
 
 ## Repo Map
 
@@ -53,4 +59,3 @@ The product is a documentation-first monorepo design for a hackathon MVP built w
 - It combines structured business rules with LLM reasoning instead of just summarizing text.
 - It shows agent collaboration and evidence provenance.
 - It produces actionable outputs for enterprise users, not generic chat responses.
-
