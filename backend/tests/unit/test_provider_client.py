@@ -124,3 +124,33 @@ def test_mock_provider_finance_analysis_reports_conflict_when_active_exceeds_pur
 
     assert response["conflicts"] == ["Active seats exceed purchased seats."]
     assert response["projectedSavingsStatus"] == "not_available"
+
+
+def test_mock_provider_comms_agent_generates_useful_vendor_email() -> None:
+    client = MockProviderClient()
+    response = client.generate_json(
+        "CommsAgent",
+        "artifact-generation",
+        {
+            "case": {"vendorName": "Acme PM Suite"},
+            "decision": {
+                "recommendedAction": "renegotiate",
+                "confidenceScore": 0.82,
+                "nextStep": "Review and send the negotiation draft before the notice window closes.",
+                "projectedSavings": 18720,
+                "evidence": [
+                    {"factKey": "seats_purchased", "value": 250},
+                    {"factKey": "active_seats", "value": 46},
+                    {"factKey": "renewal_date", "value": "2026-07-01"},
+                    {"factKey": "termination_notice_days", "value": 30},
+                ],
+            },
+        },
+    )
+
+    artifacts = {item["artifactType"]: item for item in response["artifacts"]}
+    vendor_email = artifacts["vendor_email"]["content"]
+
+    assert "46 active seats against 250 purchased seats" in vendor_email
+    assert "$18,720" in vendor_email
+    assert "revised renewal options" in vendor_email

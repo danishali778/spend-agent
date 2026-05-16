@@ -234,14 +234,66 @@ class MockProviderClient:
         if agent_name == "CommsAgent":
             vendor_name = payload["case"].get("vendorName", "Vendor")
             decision = payload["decision"]
+            evidence = decision.get("evidence", [])
+            renewal_date = self._evidence_value(evidence, "renewal_date")
+            notice_days = self._evidence_value(evidence, "termination_notice_days")
+            purchased_seats = self._evidence_value(evidence, "seats_purchased")
+            active_seats = self._evidence_value(evidence, "active_seats")
+            savings = decision.get("projectedSavings")
+            savings_phrase = f" with an estimated annual savings opportunity of ${savings:,.0f}" if isinstance(savings, (int, float)) else ""
+            seat_phrase = self._seat_phrase(purchased_seats, active_seats)
+            timing_phrase = self._timing_phrase(renewal_date, notice_days)
             return {
                 "artifacts": [
-                    {"artifactType": "cfo_summary", "title": f"Renewal Recommendation for {vendor_name}", "content": f"Recommend {decision['recommendedAction']} based on current usage, renewal timing, and the evidence gathered in this run.", "decisionVersion": 1},
-                    {"artifactType": "approval_note", "title": f"Approval Note for {vendor_name}", "content": f"Decision confidence is {decision['confidenceScore']:.2f}. Next step: {decision['nextStep']}", "decisionVersion": 1},
-                    {"artifactType": "vendor_email", "title": f"{vendor_name} Renewal Discussion", "content": "We would like to review current seat utilization before renewal.", "decisionVersion": 1},
+                    {"artifactType": "cfo_summary", "title": f"Renewal Recommendation for {vendor_name}", "content": f"Recommend {decision['recommendedAction']} for {vendor_name}{savings_phrase}. {seat_phrase or 'The recommendation is based on the uploaded renewal evidence and usage signals.'}", "decisionVersion": 1},
+                    {"artifactType": "approval_note", "title": f"Approval Note for {vendor_name}", "content": f"Decision confidence is {decision['confidenceScore']:.2f}. {decision['nextStep']}", "decisionVersion": 1},
+                    {"artifactType": "vendor_email", "title": f"{vendor_name} Renewal Discussion", "content": self._vendor_email(vendor_name, decision, seat_phrase, timing_phrase, savings_phrase), "decisionVersion": 1},
                 ]
             }
         raise ValueError(f"No mock response configured for {agent_name}")
+
+    def _evidence_value(self, evidence: Sequence[Mapping[str, Any]], fact_key: str) -> Any:
+        for item in evidence:
+            if item.get("factKey") == fact_key:
+                return item.get("value")
+        return None
+
+    def _seat_phrase(self, purchased_seats: Any, active_seats: Any) -> str:
+        if purchased_seats is None or active_seats is None:
+            return ""
+        try:
+            purchased = int(purchased_seats)
+            active = int(active_seats)
+        except (TypeError, ValueError):
+            return ""
+        if purchased <= 0:
+            return ""
+        utilization = round((active / purchased) * 100)
+        return f"Usage evidence shows {active} active seats against {purchased} purchased seats, or about {utilization}% utilization."
+
+    def _timing_phrase(self, renewal_date: Any, notice_days: Any) -> str:
+        parts: list[str] = []
+        if renewal_date:
+            parts.append(f"the renewal date appears to be {renewal_date}")
+        if notice_days:
+            parts.append(f"the notice window is {notice_days} days")
+        return " and ".join(parts)
+
+    def _vendor_email(self, vendor_name: str, decision: Mapping[str, Any], seat_phrase: str, timing_phrase: str, savings_phrase: str) -> str:
+        action = str(decision.get("recommendedAction", "review"))
+        opening = f"Hi {vendor_name} team,"
+        context_parts = []
+        if seat_phrase:
+            context_parts.append(seat_phrase)
+        if timing_phrase:
+            context_parts.append(f"We are reviewing this renewal because {timing_phrase}.")
+        context = " ".join(context_parts) or "We are reviewing the upcoming renewal and want to align the subscription with current usage."
+        savings_sentence = f"We would like to discuss options that better match current demand{savings_phrase}." if savings_phrase else "We would like to discuss options that better match current demand before we finalize the renewal."
+        ask = "Could you share revised renewal options, including a right-sized seat count and any pricing flexibility available for this term?"
+        close = "Thanks, and we would appreciate your response before the notice window closes."
+        if action == "escalate":
+            savings_sentence = "Before we proceed, we need to clarify the renewal terms and usage baseline."
+        return "\n\n".join([opening, context, savings_sentence, ask, close])
 
     def _document_analysis(self, payload: Mapping[str, Any]) -> Dict[str, Any]:
         documents = payload.get("documents", [])
