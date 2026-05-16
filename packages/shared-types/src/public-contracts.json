@@ -1,0 +1,19 @@
+{
+  "enums": {
+    "caseStatus": ["draft", "ingested", "analyzing", "decision_ready", "needs_review", "archived"],
+    "documentType": ["contract_pdf", "invoice_pdf", "usage_csv", "renewal_email"],
+    "recommendedAction": ["renew", "downgrade", "cancel", "renegotiate", "escalate"],
+    "runStatus": ["queued", "running", "completed", "failed", "cancelled"],
+    "stepStatus": ["pending", "running", "completed", "failed", "skipped"],
+    "urgencyLevel": ["low", "medium", "high", "critical"],
+    "parseStatus": ["pending", "parsed", "failed"],
+    "artifactType": ["cfo_summary", "approval_note", "vendor_email"],
+    "policyResult": ["pass", "warn", "fail"]
+  },
+  "interfaces": {
+    "CaseSummary": ["id", "vendorName", "status", "renewalDate", "urgencyLevel", "projectedSavings", "projectedSavingsStatus", "recommendedAction"],
+    "DecisionPacket": ["recommendedAction", "confidenceScore", "rationale", "evidence", "projectedSavings", "projectedSavingsStatus", "blockers", "nextStep", "fallbackAction"],
+    "GeneratedArtifact": ["artifactType", "title", "content", "decisionVersion", "createdAt"],
+    "AgentActivityEvent": ["runId", "agentName", "stepName", "status", "startedAt", "completedAt", "summary"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["checks", "requiresEscalation"],
+  "properties": {
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["thresholdName", "result", "message"],
+        "properties": {
+          "thresholdName": { "type": "string" },
+          "result": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "requiresEscalation": { "type": "boolean" }
+  }
+}
+

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@spendagent/shared-types": [
+        "packages/shared-types/src/index.ts"
+      ],
+      "@spendagent/decision-rules": [
+        "packages/decision-rules/src/index.ts"
+      ],
+      "@spendagent/prompt-contracts/*": [
+        "packages/prompt-contracts/src/*"
+      ],
+      "@spendagent/ui-contracts": [
+        "packages/ui-contracts/src/index.ts"
+      ]
+    }
+  }
+}
+

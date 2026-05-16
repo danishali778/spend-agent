@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["usageSnapshot", "savingsScenarios", "conflicts"],
+  "properties": {
+    "usageSnapshot": {
+      "type": "object",
+      "required": ["currency"],
+      "properties": {
+        "seatsPurchased": { "type": "integer" },
+        "seatsActive": { "type": "integer" },
+        "utilizationPercent": { "type": "number" },
+        "totalCost": { "type": "number" },
+        "costPeriod": { "type": "string" },
+        "currency": { "type": "string" }
+      }
+    },
+    "savingsScenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action", "projectedSavings"],
+        "properties": {
+          "action": { "type": "string" },
+          "projectedSavings": { "type": "number" }
+        }
+      }
+    },
+    "conflicts": { "type": "array", "items": { "type": "string" } }
+  }
+}
+
