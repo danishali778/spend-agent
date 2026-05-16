@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "recommendedAction",
+    "confidenceScore",
+    "rationale",
+    "evidence",
+    "blockers",
+    "nextStep"
+  ],
+  "properties": {
+    "recommendedAction": { "type": "string" },
+    "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "rationale": { "type": "string" },
+    "evidence": { "type": "array", "items": { "type": "object" } },
+    "projectedSavings": { "type": "number" },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "nextStep": { "type": "string" },
+    "fallbackAction": { "type": "string" }
+  }
+}
+

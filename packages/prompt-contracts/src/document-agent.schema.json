@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["facts", "ambiguities", "missingCriticalFacts"],
+  "properties": {
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["factKey", "value", "sourceDocumentId", "confidenceScore"],
+        "properties": {
+          "factKey": { "type": "string" },
+          "value": {},
+          "sourceDocumentId": { "type": "string" },
+          "sourceSnippet": { "type": "string" },
+          "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "ambiguities": { "type": "array", "items": { "type": "string" } },
+    "missingCriticalFacts": { "type": "array", "items": { "type": "string" } }
+  }
+}
+

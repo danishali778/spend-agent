@@ -1,0 +1,16 @@
+{
+  "name": "@spendagent/decision-rules",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./utilization": "./src/utilization.ts",
+    "./urgency": "./src/urgency.ts",
+    "./savings": "./src/savings.ts",
+    "./escalation": "./src/escalation.ts"
+  }
+}

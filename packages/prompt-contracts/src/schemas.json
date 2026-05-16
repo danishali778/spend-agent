@@ -1,0 +1,33 @@
+{
+  "bundle": {
+    "version": "v1.0.0",
+    "policy": {
+      "preferUnknownOverGuessing": true,
+      "requireProvenance": true,
+      "recommendEscalationOnInsufficientEvidence": true,
+      "hideRawChainOfThought": true
+    }
+  },
+  "schemas": {
+    "documentAgent": {
+      "version": "1.0.0",
+      "required": ["facts", "ambiguities", "missingCriticalFacts"]
+    },
+    "financeAgent": {
+      "version": "1.0.0",
+      "required": ["usageSnapshot", "savingsScenarios", "conflicts"]
+    },
+    "policyAgent": {
+      "version": "1.0.0",
+      "required": ["checks", "requiresEscalation"]
+    },
+    "decisionAgent": {
+      "version": "1.0.0",
+      "required": ["recommendedAction", "confidenceScore", "rationale", "evidence", "projectedSavings", "blockers", "nextStep", "fallbackAction"]
+    },
+    "commsAgent": {
+      "version": "1.0.0",
+      "required": ["artifacts"]
+    }
+  }
+}
